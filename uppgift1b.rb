@@ -24,4 +24,5 @@ while( row < names.length )
 	row += 1;
 end
 
-puts
+puts divider
+puts "Totalt antal".ljust(20) + " " + names.length.to_s.rjust(15)
