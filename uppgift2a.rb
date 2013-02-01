@@ -10,4 +10,8 @@ puts "Välkommen till gissningsspelet. Kan du gissa talet?"
 print ("Skriv in övre gräns för talet: ")
 limit = gets.chomp.to_i
 
-puts limit #debug
+# svaret är ett slumptal mellan 1 och limit, inklusive
+answer = Random.rand(1..limit)
+
+
+puts answer #debug
