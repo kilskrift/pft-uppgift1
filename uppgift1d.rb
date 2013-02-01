@@ -13,10 +13,18 @@ datefile = ARGV[1] ||= "datum.txt"
 names = File.open(namefile).readlines
 dates = File.open(datefile).readlines
 
+# om vi har ett tredje argument är det filnamnet vi vill skriva listan till
+# annars skriver vi ut till $stdout
+if ARGV[2] then
+	outfile = File.open(ARGV[2], "w")
+else
+	outfile = $stdout
+end
+
 # skriv ut "tabellhuvudet", 20 tecken+1+15 tecken
-puts "Namn".ljust(20) + " " + "Datum".rjust(15)
+outfile.puts "Namn".ljust(20) + " " + "Datum".rjust(15)
 divider = "-"*20 + "|" + "-"*15 # återanvänds i tabellfoten
-puts divider
+outfile.puts divider
 
 # datumen är på formatet YY-MM-DD, men vi vill har fyra siffror för årtal
 # datumen är strängar, och vi kan indexera strängar precis som en array
@@ -44,12 +52,13 @@ end
 # sort_by tar ett block som argument, där kan vi ange att vi vill sortera på datum
 sorted_by_date = name_and_date.sort_by { |name, date| date }
 sorted_by_date.each do |nd|
-	print nd[0].chomp.ljust(20)
-	print "|"
-	puts nd[1].chomp.rjust(15) # puts to get a new line
+	outfile.print nd[0].chomp.ljust(20)
+	outfile.print "|"
+	outfile.puts nd[1].chomp.rjust(15) # puts to get a new line
 end
 
-
 # skriv ut "tabellfoten", totalt antal namn är = name-arrayens längd
-puts divider
-puts "Totalt antal".ljust(20) + " " + names.length.to_s.rjust(15)
+outfile.puts divider
+outfile.puts "Totalt antal".ljust(20) + " " + names.length.to_s.rjust(15)
+
+outfile.close # vi är färdiga med alla utskrifter
