@@ -18,11 +18,12 @@ while( true )
 	print ("Skriv din gissning: ")
 	guess = gets.chomp.to_i
 
-	puts "Du gissade " + guess.to_s
-
 	if( guess == answer )
+		puts "Rätt gissning, bra!"
 		break
 	end
+
+	puts "Du gissade #{guess}, som är för #{(guess<answer)?"lågt":"högt"}!"
 end
 
 puts answer #debug
