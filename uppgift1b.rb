@@ -6,7 +6,7 @@
 
 # skriv ut "tabellhuvudet", 20 tecken+1+15 tecken
 puts "Namn".ljust(20) + " " + "Datum".rjust(15)
-divider = "-"*20 + "|" + "-"*15
+divider = "-"*20 + "|" + "-"*15 # återanvänds i tabellfoten
 puts divider
 
 
@@ -24,5 +24,7 @@ while( row < names.length )
 	row += 1;
 end
 
+
+# skriv ut "tabellfoten", totalt antal namn är = name-arrayens längd
 puts divider
 puts "Totalt antal".ljust(20) + " " + names.length.to_s.rjust(15)
