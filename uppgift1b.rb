@@ -20,7 +20,12 @@ dates = File.open("datum.txt").readlines
 # för varje rad skriver vi ut namn & motsvarade datum
 row = 0;
 while( row < names.length )
-	puts names[row].chomp + " " + dates[row].chomp
+	#print nice looking name & date information
+	print names[row].chomp.ljust(20)
+	print "|"
+	puts dates[row].chomp.rjust(15) # puts to get a new line
+
+	#advance to next "row" in arrays
 	row += 1;
 end
 
