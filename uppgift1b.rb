@@ -6,7 +6,9 @@
 
 # skriv ut "tabellhuvudet", 20 tecken+1+15 tecken
 puts "Namn".ljust(20) + " " + "Datum".rjust(15)
-puts "-"*(20+1+15)
+divider = "-"*20 + "|" + "-"*15
+puts divider
+
 
 # läs in namn & datum till två arrayer
 names = File.open("namn.txt").readlines
@@ -21,3 +23,5 @@ while( row < names.length )
 	puts names[row].chomp + " " + dates[row].chomp
 	row += 1;
 end
+
+puts
