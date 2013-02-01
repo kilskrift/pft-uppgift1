@@ -1,18 +1,22 @@
 # encoding: utf-8
 
 #
-# Inlämningsuppgift 1c i Programmering för Testare vt2013
+# Inlämningsuppgift 1d i Programmering för Testare vt2013
 #
+
+# om vi fått in minst två argument så antar vi att de är namn & datum-filerna
+# om inte, ge defaultvärden
+namefile = ARGV[0] ||= "namn.txt"
+datefile = ARGV[1] ||= "datum.txt"
+
+# läs in namn & datum till två arrayer
+names = File.open(namefile).readlines
+dates = File.open(datefile).readlines
 
 # skriv ut "tabellhuvudet", 20 tecken+1+15 tecken
 puts "Namn".ljust(20) + " " + "Datum".rjust(15)
 divider = "-"*20 + "|" + "-"*15 # återanvänds i tabellfoten
 puts divider
-
-
-# läs in namn & datum till två arrayer
-names = File.open("namn.txt").readlines
-dates = File.open("datum.txt").readlines
 
 # datumen är på formatet YY-MM-DD, men vi vill har fyra siffror för årtal
 # datumen är strängar, och vi kan indexera strängar precis som en array
