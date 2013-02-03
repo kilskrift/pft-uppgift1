@@ -35,6 +35,8 @@ name_and_date = {} #empty hash
 for i in (0...names.length) # 0 to lenght-1
 	name_and_date[ names[i] ] = fulldates[i] #add to hash w/name as key to date
 end
+# (alt. kan man skapa en "par"-array m/Array.zip & skapa hashen m/Hash[[k,v],..])
+
 
 # en hash är till sin natur osorterad, men vi kan returnera en array med sort_by
 # sort_by tar ett block som argument, där kan vi ange att vi vill sortera på datum
